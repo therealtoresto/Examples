@@ -1,0 +1,15 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "This repository contains a collection of code examples to help you learn and \\ understand various concepts and techniques in development. Each example is \\ designed to demonstrate a specific feature, pattern, or functionality in a \\ concise and practical way.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "therealtoresto",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^11.0.0"
+  }
+}
