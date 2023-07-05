@@ -78,4 +78,14 @@ code examples for personal or commercial purposes.
 If you have any questions, feedback, or need assistance with any of the \
 examples, please create an issue in the repository. We'll be happy to help!
 
+```js
+if (PRESENT_AT_LECTURE) {
+    student.addKnowledges(knowledges);
+} else {
+    setTimeout(() => {
+        student.addKnowledges(knowledges);
+    }, LECTURE_VIDEO_DURATION)
+}
+```
+
 Happy coding!
