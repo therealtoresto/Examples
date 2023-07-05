@@ -1,8 +1,6 @@
 console.log('Hello universe!');
 
-const age = 50;
-
-global.year = 2023;
+// const age = 50;
 
 export const name = 'Taras';
 
@@ -15,5 +13,6 @@ export const getAge = () => {
 
 global.name = 'Tomas';
 global.age = '30';
+global.year = 2023;
 
 console.log('Global variable age:', global.age);
