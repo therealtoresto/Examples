@@ -7,6 +7,7 @@ require('dotenv').config();
 const secret = process.env.SECRET;
 
 const auth = (req, res, next) => {
+    const token = req.headers.authorization.split(' ')[1];
     passport.authenticate('jwt', { session: false }, (err, user) => {
         if (!user || err) {
             return res.status(401).json({
@@ -79,12 +80,12 @@ router.post('/registration', async (req, res, next) => {
 })
 
 router.get('/list', auth, (req, res, next) => {
-    const { username } = req.user;
+    const { username, email } = req.user;
     res.json({
         status: 'success',
         code: 200,
         data: {
-            message: `Authorisation successful: ${username}`,
+            message: `Authorisation successful: Name: ${username} Email: ${email}`,
         }
     })
 });
