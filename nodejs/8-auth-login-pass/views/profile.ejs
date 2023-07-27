@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>Passport - Local Strategy</title>
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead">
+        <div class="inner">
+          <h3 class="masthead-brand">GoIT Node-book</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="/">SigIn</a>
+            <a class="nav-link" href="/registration">Registration</a>
+            <a class="nav-link active" href="/profile">Profile</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <div class="row featurette mb-3">
+          <div class="col-md-7 order-md-2">
+            <p class="lead">Wellcome to your secure page</p>
+            <hr />
+            <h5 class="featurette-heading text-left">
+              username:
+              <span class="text-muted"><%= username %></span>
+            </h5>
+            <h5 class="featurette-heading text-left">
+              email:
+              <span class="text-muted"><%= email %></span>
+            </h5>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <img src="https://cdn.glitch.com/e4bdbb4a-3966-443f-ab4f-f5a7755743b2%2Fprofile.png?v=1601126292486" alt="" width="250" />
+          </div>
+        </div>
+        <a href="/logout" class="btn btn-lg btn-primary btn-block"> Log Out </a>
+      </main>
+    </div>
+  </body>
+</html>
