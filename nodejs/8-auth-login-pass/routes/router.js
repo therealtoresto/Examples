@@ -44,11 +44,17 @@ router.get('/registration', (req, res, next) => {
     res.render('registration', { message: req.flash('message')})
 })
 
-router.post('/registration', async (req, res, next) => {
+const isUserAlreadyRegistered = async (email) => {
+    const user = await User.findOne({ email });
+    if (user) return true;
+    return false;
+}
+
+const registrationMiddleware = async (req, res, next) => {
     console.log(req.url, req.body);
     const { username, email, password } = req.body;
     try {
-        const user = await User.findOne({ email });
+        
 
         if (user) {
             req.flash('message', 'This email is already used!');
@@ -64,7 +70,9 @@ router.post('/registration', async (req, res, next) => {
     } catch (err) {
         next(err);
     }
-});
+}
+
+router.post('/registration', registrationMiddleware);
 
 router.get('/profile', isLoggedIn, (req, res, next) => {
     console.log(req.session.passport);
@@ -80,4 +88,4 @@ router.get('/logout', (req, res, next) => {
     res.redirect('/');
 });
 
-module.exports = router;
+module.exports = {router, registrationMiddleware, isUserAlreadyRegistered};
