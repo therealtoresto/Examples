@@ -1,3 +1,4 @@
+/* eslint-disable */
 const readline = require('node:readline');
 const fs = require('node:fs/promises');
 
@@ -7,7 +8,7 @@ require('colors');
 program.option(
     '-f, --file [type]',
     'file for saving game results',
-    'results.txt',
+    'score.txt',
 );
 
 
@@ -59,9 +60,9 @@ const startGame = () => {
             }
             count++;
             if (number === mind) {
-                console.log('Congratulations!, you are gessed with %d step(s)'.green, count)
+                console.log('Congratulations!, you are guessed with %d step(s)'.green, count)
             
-            log(`${new Date().toLocaleDateString()}: Congratulations!, you are gessed with ${count} step(s)`)
+            log(`${new Date().toLocaleDateString()}: Congratulations!, you are guessed with ${count} step(s)`)
                 .finally(() => rl.close());
             return;
         }
@@ -71,4 +72,4 @@ const startGame = () => {
     );
 };
 
-startGame()
+startGame();

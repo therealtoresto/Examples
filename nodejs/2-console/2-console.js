@@ -1,3 +1,4 @@
+/* eslint-disable */
 console.dir({
     currentDir: process.cwd(),
     processId: process.pid,

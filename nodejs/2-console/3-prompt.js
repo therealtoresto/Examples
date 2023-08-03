@@ -1,6 +1,7 @@
+/* eslint-disable */
 'use strict';
 
-const readline = require('readline');
+const readline = require('node:readline');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -23,7 +24,7 @@ const commands = {
 console.log('Try commands: ' + Object.keys(commands).join(', '));
 rl.prompt();
 
-rl.on('line', line => {
+rl.on('line', (line) => {
     line = line.trim();
     const command = commands[line];
     if (command) command();

@@ -1,3 +1,4 @@
+/* eslint-disable */
 console.log('Hello universe!');
 
 const obj = {
@@ -17,6 +18,7 @@ const obj = {
         }
     ]
 };
+obj.country = 'Ukraine';
 
 Object.defineProperty(obj, 'parentsCount', {
     enumerable: false,
@@ -26,7 +28,7 @@ Object.defineProperty(obj, 'parentsCount', {
 
 console.log({obj});
 
-console.dir({obj});
+console.dir(obj);
 
 console.dir({ obj }, { showHidden: true, depth: 20, colors: true });
 
