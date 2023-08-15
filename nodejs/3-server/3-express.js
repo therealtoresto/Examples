@@ -2,15 +2,13 @@ const express = require('express');
 
 const app = express();
 
-const HOSTNAME = '127.0.0.1';
-const PORT = 3000;
-const TIMEOUT = 4000;
-
-
-// using body parser
 app.use(express.urlencoded({ extended: true }));
 
-const contacts = {
+const HOSTNAME = '127.0.0.1';
+const PORT = 8000;
+const TIMEOUT = 4000;
+
+const constacts = {
     john: {
         name: 'John',
         age: 32,
@@ -23,12 +21,11 @@ const contacts = {
     },
     linda: {
         name: 'Linda',
-        age: 54,
+        age: 43,
         city: 'Poltava'
     }
 };
 
-// get '/' endpoint handler
 app.get('/', (req, res) => {
     console.log('GET /');
     res.setHeader('Content-Type', 'text/html');
@@ -36,45 +33,39 @@ app.get('/', (req, res) => {
     res.end(`
         <form action="/login" method="POST">
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" />
+            <input type="text" name="email" id="email" /><br><br>
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <input type="password" name="password" id="password" /><br><br>
             <button type="submit">Sign In</button>
         </form>
-    `);
-});
+    `)
+})
 
-// get '/contacts' endpoint handler
 app.get('/contacts', (req, res) => {
     console.log('GET /contacts');
-    res.json(contacts);
+    res.json(constacts);
 });
 
-// using middleware example
 app.use((req, res, next) => {
     console.time('Middleware execution');
     console.log('Middleware started...🚀');
     setTimeout(() => {
-        console.log('Middleware finished 🏁');
+        console.log('Middleware finished...🏁');
         console.timeEnd('Middleware execution');
         next();
-    }, TIMEOUT);
+    }, TIMEOUT)
 });
 
-// get '/hello' endpoint handler
 app.get('/hello', (req, res) => {
     console.log('GET /hello');
     res.send('Hello universe!');
 });
 
-// post '/login' endpoint handler
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     console.log(`Email: ${email}, password: ${password}`);
 });
 
-
-// running server
 app.listen(PORT, HOSTNAME, () => {
-    console.log(`Express app is running 🛸 at ${HOSTNAME}:${PORT}`);
+    console.log(`Expess app is running 🛸 at ${HOSTNAME}:${PORT}`);
 });

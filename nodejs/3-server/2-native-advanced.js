@@ -1,13 +1,16 @@
 const http = require('node:http');
 
-const user = { name: 'john', age: 20 };
+const user = {
+  name: 'John',
+  age: 30
+}
 
 const routing = {
-  '/': '<h1>welcome to homepage</h1><hr>',
+  '/': '<h1>Welcome to homepage</h1><hr>',
   '/user': user,
   '/user/name': () => user.name.toUpperCase(),
   '/user/age': () => user.age,
-  '/hello': { hello: 'universe', andArray: [1, 2, 3, 4, 5] },
+  '/hello': { hello: 'universe', arr: [1, 2, 3, 4]},
   '/api/method1': (req, res) => {
     console.log(req.url, res.statusCode);
     return { status: res.statusCode };
@@ -32,7 +35,9 @@ http.createServer((req, res) => {
   const serializer = types[type];
   const result = serializer(data, req, res);
   res.end(result);
-}).listen(8000);
+}).listen(8000, () => {
+  console.log('HTTP server listen 8000 port');
+});
 
 // short variant
 
