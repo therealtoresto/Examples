@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All tasks</title>
+</head>
+<body>
+    <a href="/users/create">Create user</a>
+    <a href="/tasks/create">Create task</a>
+    <a href="/users/all">All users</a>
+    
+    <h1>Tasks List</h1>
+    <ul>
+        <% tasks.forEach((task) => { %>
+            <li>Title: <%= task.owner.username %></li>
+            <li>Title: <%= task.title %></li>
+            <li>Text: <%= task.text.substr(0, 100) + '...' %></li><br><br>
+        <% }); %>
+    </ul>
+</body>
+</html>
