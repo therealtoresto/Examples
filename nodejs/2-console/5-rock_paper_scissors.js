@@ -41,6 +41,7 @@ const playGame = () => {
         if (!choises.includes(userChoise)) {
             console.log('Invalid choise. Please choose rock, paper or scissors.');
             playGame();
+            return;
         }
 
         const computerChoise = getRandomChoise();
@@ -56,7 +57,7 @@ const playGame = () => {
         })
 
         rl.question('Do you want to play again? (yes/no): ', (answer) => {
-            if (answer.toLowerCase() === 'yes') {
+            if (answer.toLowerCase() === 'yes' || 'y') {
                 playGame();
             } else {
                 console.log('Thanks for playing!');
@@ -66,5 +67,5 @@ const playGame = () => {
     });
 }
 
-console.log('Wellcome to Rock-Paper-Scissors Game!');
+console.log('Welcome to Rock-Paper-Scissors Game!');
 playGame();

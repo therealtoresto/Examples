@@ -1,1 +1,1 @@
-paper vs rock => Computer win!
+paper vs rock => Computer win!rock vs paper => You win!paper vs rock => Computer win!scissors vs scissors => It's a tie!paper vs paper => It's a tie!paper vs paper => It's a tie!scissors vs paper => Computer win!scissors vs scissors => It's a tie!paper vs scissors => You win!scissors vs rock => You win!
