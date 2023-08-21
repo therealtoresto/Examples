@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create task</title>
+</head>
+<body>
+    <a href="/users/create">Create user</a>
+    <a href="/users/all">All users</a>
+    <a href="/tasks/all">All tasks</a>
+
+    <h1>Usernames List</h1>
+    <ul>
+        <% users.forEach((user) => { %>
+            <li><%= user.username %></li>
+        <% }); %>
+    </ul>
+
+    <h1>Create task</h1>
+    <form action="/tasks/create" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"><br><br>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title"><br><br>
+        <label for="text">Text:</label>
+        <input type="text" name="text" id="text"><br><br>
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>
