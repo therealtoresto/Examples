@@ -63,10 +63,15 @@ const tests = [
     testWrongString
 ];
 
-for (const test of tests) {
-    try {
-        test()
-    } catch (err) {
-        console.log(err);
+
+const runTests = () => {
+    for (const test of tests) {
+        try {
+            test();
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
+
+runTests();

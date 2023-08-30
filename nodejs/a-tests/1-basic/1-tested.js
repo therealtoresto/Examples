@@ -21,6 +21,6 @@ const ipToInt = (ip) => ip.split('.')
     // 32512 << 8 = 8323072
     // 8323072 << 8 = 2130706432
     // 2130706432 + 1 = 2130706433
-    assert.strictEqual(number, 213070643, 'Localhost ip addres failed');
+    assert.strictEqual(number, 2130706433, 'Localhost ip addres failed');
     console.log('Test done!');
 }

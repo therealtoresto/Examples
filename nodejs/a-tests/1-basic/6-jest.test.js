@@ -30,7 +30,7 @@ test('Numbers matching', () => {
 });
 
 const array = [
-    'cat', 'dog', 'fish', 'bird', 'human'
+    'cat', 'dog', 'fis', 'bird', 'human'
 ];
 
 test('Array matching', () => {

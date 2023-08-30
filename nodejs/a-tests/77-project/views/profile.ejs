@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create task</title>
+</head>
+<body>
+    <h1>Links List</h1>
+    <a href="/tasks/create">Create task</a> ~
+    <a href="/users/all">All users</a> ~
+    <a href="/tasks/all">All tasks</a> ~
+    <a href="/logout">Logout</a>
+
+    <h1>My profile</h1>
+    <ul>
+        <li>Title: <%= user.username %></li>
+        <li>Email: <%= user.email %></li>
+        <li>Task count: <%= user.tasks.length %></li><br><br>
+    </ul>
+
+</html>

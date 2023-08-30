@@ -45,7 +45,7 @@ const tests = [
 
 for (const test of tests) {
     try {
-        test()
+        test();
     } catch (err) {
         console.log(err);
     }
