@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All users</title>
+</head>
+<body>
+    <a href="/">Main page</a> ~
+    <a href="/tasks/create">Create task</a> ~
+    <a href="/tasks/all">All tasks</a> ~
+    <a href="/profile">Profile</a>
+    
+    <h1>Users List</h1>
+    <ul>
+        <% users.forEach((user) => { %>
+            <li>Username: <%= user.username %></li>
+            <li>Email: <%= user.email %></li><br><br>
+        <% }); %>
+    </ul>
+</body>
+</html>
