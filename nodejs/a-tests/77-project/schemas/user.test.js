@@ -17,7 +17,7 @@ describe('Testing User model', () => {
     });
 
     afterAll(async () => {
-        await User.findOneAndDelete({ username: 'test_user' });
+        // await User.findOneAndDelete({ username: 'test_user' });
         await mongoose.connection.close();
     });
 
