@@ -1,22 +1,25 @@
 const sgMail = require('@sendgrid/mail');
+require('dotenv').config();
 
-// Встановити SendGrid API ключ
-sgMail.setApiKey('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');
+const { ADDRESSEE, MY_EMAIL, SG_KEY } = process.env;
 
-// Конфігурація електронного листа
+// Set SendGrid API key
+sgMail.setApiKey(process.env.SG_KEY);
+
+// Email config
 const msg = {
-  to: 'therealtoresto2@gmail.com', // Адресат
-  from: 'therealtoresto@gmail.com', // Ваша електронна адреса (яка буде відправником)
-  subject: 'Привіт від SendGrid!', // Тема листа
-  text: 'Привіт, це тестовий лист від SendGrid!', // Текстовий варіант листа
-  html: '<p>Привіт, це тестовий лист від <strong>SendGrid!</strong></p>', // HTML-варіант листа
+  to: ADDRESSEE, // Addressee
+  from: MY_EMAIL, // Your email
+  subject: 'Hello from SendGrid!',
+  // text: 'Hi, this is a test letter from SendGrid!', // Text variant
+  html: '<p>Hi, this is a test letter from <strong>SendGrid!</strong></p>',
 };
 
 // Надсилання листа
 sgMail
   .send(msg)
   .then(() => {
-    console.log('Лист успішно надіслано!');
+    console.log('Letter sended successfully!');
   })
   .catch((error) => {
     console.error(error.toString());

@@ -1,7 +1,10 @@
 const express = require("express");
 const path = require("path");
 const sgMail = require("@sendgrid/mail");
+require('dotenv').config();
 const app = express();
+
+const { ADDRESSEE, MY_EMAIL, SG_KEY } = process.env;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -15,10 +18,10 @@ app.get("/", (req, res, next) => {
 app.post("/", async (req, res, next) => {
   const { email, name, text } = req.body;
 
-  sgMail.setApiKey('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');
+  sgMail.setApiKey(process.env.SG_KEY);
   const msg = {
     to: email,
-    from: "therealtoresto@gmail.com",
+    from: MY_EMAIL,
     subject: `Sending email from ${name}`,
     text
   };
@@ -30,13 +33,13 @@ app.post("/", async (req, res, next) => {
   }
 });
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   const err = new Error("Not found");
   err.status = 404;
   next(err);
 });
 
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(err.status || 500);
@@ -45,5 +48,5 @@ app.use(function(err, req, res, next) {
 
 const port = process.env.PORT || "3002";
 app.listen(port, () => {
-  console.log("Server start");
+  console.log("Server started");
 });
